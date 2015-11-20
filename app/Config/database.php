@@ -1,3 +1,4 @@
+<?php
 class DATABASE_CONFIG {
  
     function __construct() {
@@ -27,3 +28,4 @@ class DATABASE_CONFIG {
         );
     }
 }
+?>
