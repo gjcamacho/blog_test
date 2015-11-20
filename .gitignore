@@ -9,6 +9,7 @@
 /dist
 /tags
 *.mo
+composer.phar
 
 # IDE and editor specific files #
 #################################
