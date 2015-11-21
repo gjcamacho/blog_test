@@ -3,15 +3,15 @@ class DATABASE_CONFIG {
  
     function __construct() {
  
-        //$url = parse_url(getenv('CLEARDB_DATABASE_URL'));
+        $url = parse_url(getenv('CLEARDB_DATABASE_URL'));
  
         $this->default = array(
             'datasource' => 'Database/Mysql',
             'persistent' => false,
-            'host' => 'db4free.net',
-            'login' => 'test123321253465',
-            'password' => 'testing',
-            'database' => 'test123321253465',
+            'host' => $url['host'],
+            'login' => $url['user'],
+            'password' => $url['pass'],
+            'database' => substr($url['path'],1),
             'prefix' => '',
             'encoding' => 'utf8',
         );
