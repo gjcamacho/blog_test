@@ -1,5 +1,5 @@
 <?php 
-	debug($post);
+	//debug($post);
 	
 	//Se muestra el contenido del Post
 ?>
