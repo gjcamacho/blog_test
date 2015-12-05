@@ -8,12 +8,19 @@ class PostsController extends AppController{
 	
 	public function add(){
 		if($this->request->is("post")){
-			debug($this->request->data);
+			//debug($this->request->data);
 			
 			$this->Post->create();
 			$this->Post->save($this->request->data);
 			
-			//$this->redirect(array("controller"=>"posts", "action"=>"index"));
+			$comment=array("Comment"=>$this->request->data["Comment"]);
+			
+			$comment["Comment"]["post_id"]=$this->Post->getInsertID();
+			
+			$this->Post->Comment->create();
+			$this->Post->Comment->save($comment);
+			
+			$this->redirect(array("controller"=>"posts", "action"=>"index"));
 		}
 	}
 }
