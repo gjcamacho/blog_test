@@ -44,10 +44,10 @@
 	
 	//Se añadira un Comment
 	
-	$this->Form->create("Comment");
-	$this->Form->input("post_id",array("type"=>"hidden","value"=>$post["Post"]["id"]));
-	$this->Form->input("comment");
-	$this->Form->submit();
-	$this->Form->end();
+	echo $this->Form->create("Comment");
+	echo $this->Form->input("post_id",array("type"=>"hidden","value"=>$post["Post"]["id"]));
+	echo $this->Form->input("comment");
+	echo $this->Form->submit();
+	echo $this->Form->end();
 	
 ?>
