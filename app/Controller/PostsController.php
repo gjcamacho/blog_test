@@ -26,7 +26,7 @@ class PostsController extends AppController{
 	
 	public function view($id=null){
 		if($id!=null){
-			$post=$this->Post->find('all',
+			$post=$this->Post->find('first',
 					array(
 							'conditions'=>array(
 									"Post.id"=>$id
