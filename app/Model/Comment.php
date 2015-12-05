@@ -7,6 +7,6 @@ class Comment extends AppModel {
 					"className"=>"Post",
 					"foreignKey"=>"post_id"
 			)
-	)
+	);
 }
 ?>
