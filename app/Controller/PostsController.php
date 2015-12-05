@@ -23,5 +23,20 @@ class PostsController extends AppController{
 			$this->redirect(array("controller"=>"posts", "action"=>"index"));
 		}
 	}
+	
+	public function view($id=null){
+		if($id!=null){
+			$post=$this->Post->find('all',
+					array(
+							'conditions'=>array(
+									"Post.id"=>$id
+							)
+					)
+				);
+			
+			$this->set("post",$post);
+		}
+		
+	}
 }
 ?>
