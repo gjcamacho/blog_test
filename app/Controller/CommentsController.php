@@ -7,7 +7,7 @@ class CommentsController extends AppController{
 			$this->Comment->create();
 			$this->Comment->save($this->request->data);
 			
-			$this->redirect(array("controller"=>"posts","action"=>"view",$this->request->data["Comment"]["id"]));
+			$this->redirect(array("controller"=>"posts","action"=>"view",$this->request->data["Comment"]["post_id"]));
 		}
 	}
 }
