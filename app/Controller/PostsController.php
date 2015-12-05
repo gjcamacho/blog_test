@@ -8,10 +8,12 @@ class PostsController extends AppController{
 	
 	public function add(){
 		if($this->request->is("post")){
+			debug($this->request->data);
+			
 			$this->Post->create();
 			$this->Post->save($this->request->data);
 			
-			$this->redirect(array("controller"=>"posts", "action"=>"index"));
+			//$this->redirect(array("controller"=>"posts", "action"=>"index"));
 		}
 	}
 }
