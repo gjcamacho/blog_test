@@ -1,7 +1,8 @@
 <?php 
 	debug($post);
+	
+	//Se muestra el contenido del Post
 ?>
-
 <table>
 	<tr>
 		<td>ID</td>
@@ -24,6 +25,7 @@
 </table>
 
 <?php 
+	//Se listan los comentarios
 	$comments=$post["Comment"];
 	
 	if(count($comments)>0){
@@ -39,4 +41,13 @@
 		<?php
 		
 	}
+	
+	//Se añadira un Comment
+	
+	$this->Form->create("Comment");
+	$this->Form->input("post_id",array("type"=>"hidden","value"=>$post["Post"]["id"]));
+	$this->Form->input("comment");
+	$this->Form->submit();
+	$this->Form->end();
+	
 ?>
