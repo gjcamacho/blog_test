@@ -34,8 +34,16 @@ class AppController extends Controller {
 	public $components = array('DebugKit.Toolbar');
 	
 	public function beforeFilter(){
-		debug("Antes del filtrado");
+		//debug("Antes del filtrado");
 		
-		debug($this->request->params);
+		//debug($this->request->params);
+		
+		if($this->request->params["controller"]!="users" && $this->request->params["action"]!="login"){
+			$user=$this->Session->read("User");
+			
+			if($user==null){
+				$this->redirect(array("controller"=>"users", "action"=>"login"));
+			}
+		}
 	}
 }
