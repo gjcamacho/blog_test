@@ -35,5 +35,7 @@ class AppController extends Controller {
 	
 	public function beforeFilter(){
 		debug("Antes del filtrado");
+		
+		debug($this->request->params);
 	}
 }
