@@ -7,13 +7,21 @@ class UsersController extends AppController{
 			$username=$this->request->data["User"]["username"];
 			$password=$this->request->data["User"]["password"];
 			
-			if($username=="gjcamacho" && $password="gjcamacho"){
+			$user=$this->User->find('first',array('conditions'=>array('User.username'=>$username,'User.password'=>$password)));
+			
+			if($username==$user["User"]["username"] && $password=$user["User"]["password"]){
 				$this->Session->write("User",array("User"=>array("username"=>"gjcamacho")));
 				
 				$this->redirect(array("controller"=>"posts", "action"=>"index"));
 			}
 		}
 		
+	}
+	
+	public function logout(){
+		$this->Session->destroy();
+		
+		$this->redirect(array("controller"=>"users","action"=>"login"));
 	}
 	
 }
